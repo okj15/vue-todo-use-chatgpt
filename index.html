@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Vue.js Todo App</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>Todo List</h1>
+    <form v-on:submit.prevent="addItem">
+      <input v-model="newItem" placeholder="Add a new item">
+      <button>Add</button>
+    </form>
+    <ul>
+      <li v-for="(item, index) in items" :key="index">
+        {{ item }}
+        <button v-on:click="removeItem(index)">Remove</button>
+      </li>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
