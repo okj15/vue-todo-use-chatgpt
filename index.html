@@ -12,12 +12,19 @@
     <h1>Vue.js Todo App</h1>
     <div class="form">
       <input type="text" v-model="newItem" placeholder="Add a new task">
+      <select v-model="newPriority">
+        <option value="high">high</option>
+        <option value="medium">medium</option>
+        <option value="low">low</option>
+      </select>
+
       <button v-on:click="addItem">Add</button>
     </div>
     <ul>
       <li v-for="(item, index) in items" v-bind:key="index">
         <div v-if="!item.isEditing">
           <span>{{ item.name }}</span>
+          <span>{{ item.priority }}</span>
           <button v-on:click="editItem(index)">Edit</button>
           <button v-on:click="removeItem(index)">Delete</button>
         </div>

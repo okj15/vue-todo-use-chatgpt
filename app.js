@@ -1,7 +1,10 @@
+const items = JSON.parse(localStorage.getItem("items")) || [];
+
 var app = new Vue({
   el: '#app',
   data: {
     newItem: '',
+    newPriority: '',
     items: []
   },
   mounted() {
@@ -21,9 +24,11 @@ var app = new Vue({
       }
       this.items.push({
         name: this.newItem.trim(),
-        isEditing: false
+        isEditing: false,
+        priority: this.newPriority
       });
       this.newItem = '';
+      this.newPriority = '';
       this.saveData();
     },
     removeItem: function (index) {

@@ -70,3 +70,16 @@ li input[type="text"] {
     border-radius: 3px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
+
+select {
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    color: #666;
+    cursor: pointer;
+}
+
+option {
+    background-color: #fff;
+    color: #333;
+}
