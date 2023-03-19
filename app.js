@@ -19,12 +19,22 @@ var app = new Vue({
       if (this.newItem.trim() === '') {
         return;
       }
-      this.items.push(this.newItem.trim());
+      this.items.push({
+        name: this.newItem.trim(),
+        isEditing: false
+      });
       this.newItem = '';
       this.saveData();
     },
     removeItem: function (index) {
       this.items.splice(index, 1);
+      this.saveData();
+    },
+    editItem: function (index) {
+      this.items[index].isEditing = true;
+    },
+    updateItem: function (index) {
+      this.items[index].isEditing = false;
       this.saveData();
     },
     saveData: function () {
